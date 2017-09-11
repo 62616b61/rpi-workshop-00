@@ -11,8 +11,8 @@ gpio.setup(BLUE_GPIO_PIN, gpio.DIR_HIGH)
 
 const app = express()
 
-app.get('/red/:value', (request, response) => {
-  const value = request.params.value
+app.get('/red/:value', (req, res) => {
+  const value = req.params.value
 
   if (value === "1") {
     gpio.write(RED_GPIO_PIN, true)
