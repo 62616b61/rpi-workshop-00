@@ -15,11 +15,11 @@ app.get('/red/:value', (req, res) => {
   const value = req.params.value
 
   if (value === "1") {
-    gpio.write(RED_GPIO_PIN, true)
+    gpio.write(RED_GPIO_PIN, false)
     res.send('ok')
   }
   else {
-    gpio.write(RED_GPIO_PIN, false)
+    gpio.write(RED_GPIO_PIN, true)
     res.send('ok')
   }
 })
