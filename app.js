@@ -11,6 +11,9 @@ gpio.setup(BLUE_GPIO_PIN, gpio.DIR_HIGH)
 
 const app = express()
 
+// Serve public content
+app.use(express.static(process.cwd() + '/public'))
+
 // Route for RED LED
 app.get('/red/:value', (req, res) => {
   const value = req.params.value
