@@ -14,12 +14,27 @@ const app = express()
 app.get('/red/:value', (req, res) => {
   const value = req.params.value
 
-  if (value === "1") {
-    gpio.write(RED_GPIO_PIN, false)
-  }
-  else {
-    gpio.write(RED_GPIO_PIN, true)
-  }
+  if (value === "1") gpio.write(RED_GPIO_PIN, false)
+  else gpio.write(RED_GPIO_PIN, true)
+
+  res.sendStatus(200)
+})
+
+app.get('/green/:value', (req, res) => {
+  const value = req.params.value
+
+  if (value === "1") gpio.write(GREEN_GPIO_PIN, false)
+  else gpio.write(GREEN_GPIO_PIN, true)
+
+  res.sendStatus(200)
+})
+
+app.get('/blue/:value', (req, res) => {
+  const value = req.params.value
+
+  if (value === "1") gpio.write(BLUE_GPIO_PIN, false)
+  else gpio.write(BLUE_GPIO_PIN, true)
+
   res.sendStatus(200)
 })
 
