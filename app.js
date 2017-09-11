@@ -16,12 +16,11 @@ app.get('/red/:value', (req, res) => {
 
   if (value === "1") {
     gpio.write(RED_GPIO_PIN, false)
-    res.send('ok')
   }
   else {
     gpio.write(RED_GPIO_PIN, true)
-    res.send('ok')
   }
+  res.sendStatus(200)
 })
 
 // Listen on port 3000
