@@ -11,6 +11,7 @@ gpio.setup(BLUE_GPIO_PIN, gpio.DIR_HIGH)
 
 const app = express()
 
+// Route for RED LED
 app.get('/red/:value', (req, res) => {
   const value = req.params.value
 
@@ -20,6 +21,7 @@ app.get('/red/:value', (req, res) => {
   res.sendStatus(200)
 })
 
+// Route for GREEN LED
 app.get('/green/:value', (req, res) => {
   const value = req.params.value
 
@@ -29,6 +31,7 @@ app.get('/green/:value', (req, res) => {
   res.sendStatus(200)
 })
 
+// Route for BLUE LED
 app.get('/blue/:value', (req, res) => {
   const value = req.params.value
 
