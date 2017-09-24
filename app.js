@@ -1,3 +1,4 @@
+const express = require('express')
 const gpio = require('rpi-gpio')
 
 const RED_GPIO_PIN = 11
@@ -8,8 +9,45 @@ gpio.setup(RED_GPIO_PIN, gpio.DIR_HIGH)
 gpio.setup(GREEN_GPIO_PIN, gpio.DIR_HIGH)
 gpio.setup(BLUE_GPIO_PIN, gpio.DIR_HIGH)
 
-setTimeout(() => {
-  gpio.write(RED_GPIO_PIN, false)
-  gpio.write(GREEN_GPIO_PIN, false)
-  gpio.write(BLUE_GPIO_PIN, false)
-}, 1000)
+const app = express()
+
+// Serve public content
+app.use(express.static(process.cwd() + '/public'))
+
+// Route for RED LED
+app.get('/red/:value', (req, res) => {
+  const value = req.params.value
+
+  if (value === "1") gpio.write(RED_GPIO_PIN, false)
+  else gpio.write(RED_GPIO_PIN, true)
+
+  res.sendStatus(200)
+})
+
+// Route for GREEN LED
+app.get('/green/:value', (req, res) => {
+  const value = req.params.value
+
+  if (value === "1") gpio.write(GREEN_GPIO_PIN, false)
+  else gpio.write(GREEN_GPIO_PIN, true)
+
+  res.sendStatus(200)
+})
+
+// Route for BLUE LED
+app.get('/blue/:value', (req, res) => {
+  const value = req.params.value
+
+  if (value === "1") gpio.write(BLUE_GPIO_PIN, false)
+  else gpio.write(BLUE_GPIO_PIN, true)
+
+  res.sendStatus(200)
+})
+
+// Listen on port 3000
+const server = app.listen(3000, () => {
+  const host = server.address().address
+  const port = server.address().port
+
+  console.log('Listening at http://%s:%s', host, port)
+})
