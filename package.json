@@ -10,6 +10,6 @@
   "author": "Cry",
   "license": "ISC",
   "dependencies": {
-    "rpi-gpio": "^0.8.1"
+    "rpi-gpio": "^2.1.7"
   }
 }
