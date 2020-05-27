@@ -16,12 +16,12 @@ const RED_GPIO_PIN =
 const GREEN_GPIO_PIN =
 const BLUE_GPIO_PIN =
 
-gpio.setup(RED_GPIO_PIN, gpio.DIR_LOW)
-gpio.setup(GREEN_GPIO_PIN, gpio.DIR_LOW)
-gpio.setup(BLUE_GPIO_PIN, gpio.DIR_LOW)
+gpio.setup(RED_GPIO_PIN, gpio.DIR_HIGH)
+gpio.setup(GREEN_GPIO_PIN, gpio.DIR_HIGH)
+gpio.setup(BLUE_GPIO_PIN, gpio.DIR_HIGH)
 
 setTimeout(() => {
-  gpio.write(RED_GPIO_PIN, true)
-  gpio.write(GREEN_GPIO_PIN, true)
-  gpio.write(BLUE_GPIO_PIN, true)
+  gpio.write(RED_GPIO_PIN, false)
+  gpio.write(GREEN_GPIO_PIN, false)
+  gpio.write(BLUE_GPIO_PIN, false)
 }, 1000)
