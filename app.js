@@ -17,9 +17,9 @@ const RED_GPIO_PIN =
 const GREEN_GPIO_PIN =
 const BLUE_GPIO_PIN =
 
-gpio.setup(RED_GPIO_PIN, gpio.DIR_LOW)
-gpio.setup(GREEN_GPIO_PIN, gpio.DIR_LOW)
-gpio.setup(BLUE_GPIO_PIN, gpio.DIR_LOW)
+gpio.setup(RED_GPIO_PIN, gpio.DIR_HIGH)
+gpio.setup(GREEN_GPIO_PIN, gpio.DIR_HIGH)
+gpio.setup(BLUE_GPIO_PIN, gpio.DIR_HIGH)
 
 const app = express()
 
@@ -30,8 +30,8 @@ app.use(express.static(process.cwd() + '/public'))
 app.get('/red/:value', (req, res) => {
   const value = req.params.value
 
-  if (value === "1") gpio.write(RED_GPIO_PIN, true)
-  else gpio.write(RED_GPIO_PIN, false)
+  if (value === "1") gpio.write(RED_GPIO_PIN, false)
+  else gpio.write(RED_GPIO_PIN, true)
 
   res.sendStatus(200)
 })
@@ -40,8 +40,8 @@ app.get('/red/:value', (req, res) => {
 app.get('/green/:value', (req, res) => {
   const value = req.params.value
 
-  if (value === "1") gpio.write(GREEN_GPIO_PIN, true)
-  else gpio.write(GREEN_GPIO_PIN, false)
+  if (value === "1") gpio.write(GREEN_GPIO_PIN, false)
+  else gpio.write(GREEN_GPIO_PIN, true)
 
   res.sendStatus(200)
 })
@@ -50,8 +50,8 @@ app.get('/green/:value', (req, res) => {
 app.get('/blue/:value', (req, res) => {
   const value = req.params.value
 
-  if (value === "1") gpio.write(BLUE_GPIO_PIN, true)
-  else gpio.write(BLUE_GPIO_PIN, false)
+  if (value === "1") gpio.write(BLUE_GPIO_PIN, false)
+  else gpio.write(BLUE_GPIO_PIN, true)
 
   res.sendStatus(200)
 })
