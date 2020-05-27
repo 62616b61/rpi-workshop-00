@@ -8,11 +8,11 @@ PREV_STEP := $(shell echo $$(($(STEP)-1)))
 PREV_BRANCH := $(addsuffix $(PREV_STEP),step)
 
 next:
-	git stash
+	git -c user.name=test -c user.email=test@test.com stash
 	git checkout $(NEXT_BRANCH)
-	git stash pop
+	git -c user.name=test -c user.email=test@test.com stash pop
 
 prev:
-	git stash
+	git -c user.name=test -c user.email=test@test.com stash
 	git checkout $(PREV_BRANCH)
-	git stash pop
+	git -c user.name=test -c user.email=test@test.com stash pop
