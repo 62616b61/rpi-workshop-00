@@ -10,9 +10,9 @@ PREV_BRANCH := $(addsuffix $(PREV_STEP),step)
 next:
 	git stash
 	git checkout $(NEXT_BRANCH)
-	git stash apply
+	git stash pop
 
 prev:
 	git stash
 	git checkout $(PREV_BRANCH)
-	git stash apply
+	git stash pop
