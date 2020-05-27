@@ -1,6 +1,16 @@
 const express = require('express')
 const gpio = require('rpi-gpio')
 
+/*  Oh, no!!!
+ *  Look! Someone erased the pin numbers!
+ *
+ *  Without pin numbers the Raspberry Pi won't know how to control the LED!
+ *
+ *  Fortunately, you can fix this!
+ *  Find out the numbers of the pins that wires are connected to
+ *  and fill in the blanks down below!
+ */
+
 const RED_GPIO_PIN =
 const GREEN_GPIO_PIN =
 const BLUE_GPIO_PIN =
