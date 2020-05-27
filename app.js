@@ -1,5 +1,7 @@
 const gpio = require('rpi-gpio')
 
+gpio.setMode(gpio.MODE_BCM)
+
 /*  Oh, no!!!
  *  Look! Someone erased the pin numbers!
  *
