@@ -1,13 +1,23 @@
 const express = require('express')
 const gpio = require('rpi-gpio')
 
-const RED_GPIO_PIN = 11
-const GREEN_GPIO_PIN = 13
-const BLUE_GPIO_PIN = 15
+/*  Oh, no!!!
+ *  Look! Someone erased the pin numbers!
+ *
+ *  Without pin numbers the Raspberry Pi won't know how to control the LED!
+ *
+ *  Fortunately, you can fix this!
+ *  Find out the numbers of the pins that wires are connected to
+ *  and fill in the blanks down below!
+ */
 
-gpio.setup(RED_GPIO_PIN, gpio.DIR_HIGH)
-gpio.setup(GREEN_GPIO_PIN, gpio.DIR_HIGH)
-gpio.setup(BLUE_GPIO_PIN, gpio.DIR_HIGH)
+const RED_GPIO_PIN =
+const GREEN_GPIO_PIN =
+const BLUE_GPIO_PIN =
+
+gpio.setup(RED_GPIO_PIN, gpio.DIR_LOW)
+gpio.setup(GREEN_GPIO_PIN, gpio.DIR_LOW)
+gpio.setup(BLUE_GPIO_PIN, gpio.DIR_LOW)
 
 const app = express()
 
@@ -18,8 +28,8 @@ app.use(express.static(process.cwd() + '/public'))
 app.get('/red/:value', (req, res) => {
   const value = req.params.value
 
-  if (value === "1") gpio.write(RED_GPIO_PIN, false)
-  else gpio.write(RED_GPIO_PIN, true)
+  if (value === "1") gpio.write(RED_GPIO_PIN, true)
+  else gpio.write(RED_GPIO_PIN, false)
 
   res.sendStatus(200)
 })
@@ -28,8 +38,8 @@ app.get('/red/:value', (req, res) => {
 app.get('/green/:value', (req, res) => {
   const value = req.params.value
 
-  if (value === "1") gpio.write(GREEN_GPIO_PIN, false)
-  else gpio.write(GREEN_GPIO_PIN, true)
+  if (value === "1") gpio.write(GREEN_GPIO_PIN, true)
+  else gpio.write(GREEN_GPIO_PIN, false)
 
   res.sendStatus(200)
 })
@@ -38,8 +48,8 @@ app.get('/green/:value', (req, res) => {
 app.get('/blue/:value', (req, res) => {
   const value = req.params.value
 
-  if (value === "1") gpio.write(BLUE_GPIO_PIN, false)
-  else gpio.write(BLUE_GPIO_PIN, true)
+  if (value === "1") gpio.write(BLUE_GPIO_PIN, true)
+  else gpio.write(BLUE_GPIO_PIN, false)
 
   res.sendStatus(200)
 })
