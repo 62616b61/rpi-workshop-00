@@ -1,9 +1,9 @@
 const express = require('express')
 const gpio = require('rpi-gpio')
 
-const RED_GPIO_PIN = 11
-const GREEN_GPIO_PIN = 13
-const BLUE_GPIO_PIN = 15
+const RED_GPIO_PIN =
+const GREEN_GPIO_PIN =
+const BLUE_GPIO_PIN =
 
 gpio.setup(RED_GPIO_PIN, gpio.DIR_HIGH)
 gpio.setup(GREEN_GPIO_PIN, gpio.DIR_HIGH)
